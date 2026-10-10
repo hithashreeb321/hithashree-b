@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Profile Card</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            width: 320px;
+            background-color: white;
+            margin: 80px auto;
+            padding: 25px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px gray;
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .card h1 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .card h3 {
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .skills {
+            margin: 15px 0;
+        }
+
+        .skills span {
+            display: inline-block;
+            background-color: lightblue;
+            padding: 6px 10px;
+            margin: 4px;
+            border-radius: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <img src="profile.jpg" alt="Profile Photo">
+
+        <h1>Hithashree</h1>
+
+        <h3>Student & Web Developer</h3>
+
+        <p>
+            Hello! I am a student who enjoys learning programming,
+            web development and creating creative projects.
+        </p>
+
+        <div class="skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Python</span>
+        </div>
+
+        <button>Contact Me</button>
+
+    </div>
+
+</body>
+</html>
+What you can customize
+Hithashree → your name
+Student & Web Developer → your role/course
+profile.jpg → your photo
+Change the skills to your own skills
+Change the background and card colors
+
+If you want, I can also create a more attractive modern profile card with gradient colors, social-media icons, and animations.
+
+with name course college email contact button
+
+Here is a simple Personal Profile Card with exactly the details you requested:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Profile Card</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            width: 300px;
+            margin: 100px auto;
+            padding: 25px;
+            background-color: white;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px gray;
+        }
+
+        .card h1 {
+            color: #333;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Hithashree</h1>
+
+        <p><b>Course:</b> BCA</p>
+
+        <p><b>College:</b> ABC College</p>
+
+        <p><b>Email:</b> hithashree@gmail.com</p>
+
+        <button>Contact Me</button>
+
+    </div>
+
+</body>
+</html>
+
+You can replace BCA, ABC College, and the email with your actual details.
+
+card fade in animation and the apge loads smooth scALE TRANSITION
+
+Absolutely. Here is the updated profile card with fade-in animation, smooth page loading, and a scale transition when you hover over the card.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Profile Card</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, lightblue, white);
+            font-family: Arial, sans-serif;
+
+            /* Smooth page loading */
+            animation: pageFade 1.2s ease-in;
+        }
+
+        /* Profile Card */
+        .card {
+            width: 320px;
+            padding: 30px;
+            background-color: white;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px gray;
+
+            /* Fade in + scale animation */
+            animation: cardFade 1.2s ease-out;
+
+            /* Smooth scale transition */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Scale effect when mouse is over card */
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px gray;
+        }
+
+        .card h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 16px;
+            margin: 12px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: darkblue;
+            transform: scale(1.08);
+        }
+
+        /* Page fade animation */
+        @keyframes pageFade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Card fade + scale animation */
+        @keyframes cardFade {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Hithashree</h1>
+
+        <p><b>Course:</b> BCA</p>
+
+        <p><b>College:</b> ABC College</p>
+
+        <p><b>Email:</b> hithashree@gmail.com</p>
+
+        <button>Contact Me</button>
+
+    </div>
+
+</body>
+</html>
+✨ Animations included
+Page fade-in → the whole page smoothly appears when it loads.
+Card fade-in → the card starts small and transparent, then becomes normal size.
+Scale transition → card grows slightly when you hover over it.
+Button scale → button becomes slightly bigger on hover.
+Smooth shadows → shadow changes smoothly with the card.
