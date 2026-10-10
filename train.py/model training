@@ -1,0 +1,159 @@
+For your Fake Currency Detection using Deep Learning project, you can use a Convolutional Neural Network (CNN) to train a model that analyzes currency images and predicts whether an image belongs to the genuine or counterfeit class.
+1. Model training workflow
+1. Collect currency images
+Genuine and counterfeit images with verified labels
+
+2. Preprocess images
+Resize images and normalize pixel values
+
+3. Split the dataset
+Training, validation and testing sets
+
+4. Train the CNN model
+Learn visual patterns from labeled images
+
+5. Evaluate and save the model
+Measure performance on unseen test images
+
+
+2. Training code for Jupyter Notebook
+First, organize your image dataset like this:
+dataset/
+├── real/
+│   ├── real1.jpg
+│   ├── real2.jpg
+│   └── ...
+└── fake/
+    ├── fake1.jpg
+    ├── fake2.jpg
+    └── ...
+
+
+Then run these notebook cells in order. This uses TensorFlow/Keras image classification, following the official TensorFlow image classification tutorial. 
+
+tensorflow.org
++1
+
+
+
+Cell 1 — Import libraries
+import tensorflow as tfimport numpy as npimport matplotlib.pyplot as pltprint("TensorFlow version:", tf.__version__)
+
+
+
+Cell 2 — Load and split the dataset
+Replace the folder path with the location of your dataset.
+DATASET_PATH = r"C:\Users\indus\Downloads\currency_dataset"IMG_SIZE = (224, 224)BATCH_SIZE = 16train_ds = tf.keras.utils.image_dataset_from_directory(    DATASET_PATH,    validation_split=0.2,    subset="training",    seed=42,    image_size=IMG_SIZE,    batch_size=BATCH_SIZE,    class_names=["fake", "real"])val_ds = tf.keras.utils.image_dataset_from_directory(    DATASET_PATH,    validation_split=0.2,    subset="validation",    seed=42,    image_size=IMG_SIZE,    batch_size=BATCH_SIZE,    class_names=["fake", "real"])print("Class names:", train_ds.class_names)
+
+
+
+This creates training and validation sets. Keep a separate test dataset for the final evaluation if possible.
+Cell 3 — Build the CNN model
+model = tf.keras.Sequential([    tf.keras.layers.Input(shape=(224, 224, 3)),    tf.keras.layers.Rescaling(1./255),    tf.keras.layers.Conv2D(32, (3, 3), activation="relu"),    tf.keras.layers.MaxPooling2D(),    tf.keras.layers.Conv2D(64, (3, 3), activation="relu"),    tf.keras.layers.MaxPooling2D(),    tf.keras.layers.Conv2D(128, (3, 3), activation="relu"),    tf.keras.layers.MaxPooling2D(),    tf.keras.layers.Flatten(),    tf.keras.layers.Dense(128, activation="relu"),    tf.keras.layers.Dropout(0.4),    tf.keras.layers.Dense(1, activation="sigmoid")])model.compile(    optimizer="adam",    loss="binary_crossentropy",    metrics=["accuracy"])model.summary()
+
+
+
+Cell 4 — Train the model
+history = model.fit(    train_ds,    validation_data=val_ds,    epochs=10)
+
+
+
+Cell 5 — Display training accuracy
+plt.plot(history.history["accuracy"], label="Training Accuracy")plt.plot(history.history["val_accuracy"], label="Validation Accuracy")plt.xlabel("Epoch")plt.ylabel("Accuracy")plt.title("Fake Currency Detection Model Training")plt.legend()plt.show()
+
+
+
+Cell 6 — Save the trained model
+model.save("currency_model.keras")print("Model saved successfully!")
+
+
+
+You can now connect currency_model.keras to the Streamlit user interface from the previous step.
+Important: The model is only as reliable as its dataset. Use genuine and counterfeit images with trustworthy labels, avoid duplicates across training and testing, and test on unseen images. A model prediction is not official verification of a banknote.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1 selection
+give currency image pleaseFor your Fake Currency Detection using Deep Learning project, you can use a Convolutional Neural Network (CNN) to train a model that analyzes currency images and predicts whether an image belongs to the genuine or counterfeit class.
+1. Model training workflow
+1. Collect currency images
+Genuine and counterfeit images with verified labels
+
+2. Preprocess images
+Resize images and normalize pixel values
+
+3. Split the dataset
+Training, validation and testing sets
+
+4. Train the CNN model
+Learn visual patterns from labeled images
+
+5. Evaluate and save the model
+Measure performance on unseen test images
+
+
+2. Training code for Jupyter Notebook
+First, organize your image dataset like this:
+dataset/
+├── real/
+│   ├── real1.jpg
+│   ├── real2.jpg
+│   └── ...
+└── fake/
+    ├── fake1.jpg
+    ├── fake2.jpg
+    └── ...
+
+
+Then run these notebook cells in order. This uses TensorFlow/Keras image classification, following the official TensorFlow image classification tutorial. 
+
+tensorflow.org
++1
+
+
+
+Cell 1 — Import libraries
+import tensorflow as tfimport numpy as npimport matplotlib.pyplot as pltprint("TensorFlow version:", tf.__version__)
+
+
+
+Cell 2 — Load and split the dataset
+Replace the folder path with the location of your dataset.
+DATASET_PATH = r"C:\Users\indus\Downloads\currency_dataset"IMG_SIZE = (224, 224)BATCH_SIZE = 16train_ds = tf.keras.utils.image_dataset_from_directory(    DATASET_PATH,    validation_split=0.2,    subset="training",    seed=42,    image_size=IMG_SIZE,    batch_size=BATCH_SIZE,    class_names=["fake", "real"])val_ds = tf.keras.utils.image_dataset_from_directory(    DATASET_PATH,    validation_split=0.2,    subset="validation",    seed=42,    image_size=IMG_SIZE,    batch_size=BATCH_SIZE,    class_names=["fake", "real"])print("Class names:", train_ds.class_names)
+
+
+
+This creates training and validation sets. Keep a separate test dataset for the final evaluation if possible.
+Cell 3 — Build the CNN model
+model = tf.keras.Sequential([    tf.keras.layers.Input(shape=(224, 224, 3)),    tf.keras.layers.Rescaling(1./255),    tf.keras.layers.Conv2D(32, (3, 3), activation="relu"),    tf.keras.layers.MaxPooling2D(),    tf.keras.layers.Conv2D(64, (3, 3), activation="relu"),    tf.keras.layers.MaxPooling2D(),    tf.keras.layers.Conv2D(128, (3, 3), activation="relu"),    tf.keras.layers.MaxPooling2D(),    tf.keras.layers.Flatten(),    tf.keras.layers.Dense(128, activation="relu"),    tf.keras.layers.Dropout(0.4),    tf.keras.layers.Dense(1, activation="sigmoid")])model.compile(    optimizer="adam",    loss="binary_crossentropy",    metrics=["accuracy"])model.summary()
+
+
+
+Cell 4 — Train the model
+history = model.fit(    train_ds,    validation_data=val_ds,    epochs=10)
+
+
+
+Cell 5 — Display training accuracy
+plt.plot(history.history["accuracy"], label="Training Accuracy")plt.plot(history.history["val_accuracy"], label="Validation Accuracy")plt.xlabel("Epoch")plt.ylabel("Accuracy")plt.title("Fake Currency Detection Model Training")plt.legend()plt.show()
+
+
+
+Cell 6 — Save the trained model
+model.save("currency_model.keras")print("Model saved successfully!")
+
+
+
